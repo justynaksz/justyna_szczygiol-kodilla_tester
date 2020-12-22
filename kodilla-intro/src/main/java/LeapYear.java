@@ -20,6 +20,6 @@ public class LeapYear {
         }
         else {
             return leapYear;
-            }
         }
+    }
 }
