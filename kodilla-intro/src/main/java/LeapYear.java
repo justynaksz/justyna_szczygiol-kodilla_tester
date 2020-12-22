@@ -11,11 +11,14 @@ public class LeapYear {
 
         if (a % 4 != 0) {
             return notLeapYear;
-        } else if (a % 100 != 0) {
+        }
+        else if (a % 100 != 0) {
             return leapYear;
-        } else if (a % 400 != 0) {
+        }
+        else if (a % 400 != 0) {
             return notLeapYear;
-        } else {
+        }
+        else {
             return leapYear;
             }
         }
