@@ -1,7 +1,6 @@
-import java.util.Locale;
 import java.util.Scanner;
 public class Colour {
-    public static String colour() {
+    public static String colour() {git
         Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("Enter first letter of the colour.");
