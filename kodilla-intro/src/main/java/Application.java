@@ -1,23 +1,31 @@
 public class Application {
     public static void main(String[] args) {
         Person personOne = new Person("Adam", 40.5, 178);
-        personOne.checkAgeAndHeight();
+        personOne.validateName();
+        personOne.validateAgeAndHeight();
     }
 }
 
 class Person {
-    String Name;
+    String name;
     double age;
     double height;
 
-    public Person(String Name, double age, double height) {
-        this.Name = Name;
+    public Person(String name, double age, double height) {
+        this.name = name;
         this.age = age;
         this.height = height;
     }
 
-    public void checkAgeAndHeight() {
-        if (this.Name != null) {
+    public boolean validateName() {
+        if (this.name != null) {
+            return true;
+        }
+        return true;
+    }
+
+    public void validateAgeAndHeight() {
+        if (validateName()) {
             if (this.age > 30 && this.height > 160) {
                 System.out.println("User is older than 30 and higher than 160cm");
             } else {
