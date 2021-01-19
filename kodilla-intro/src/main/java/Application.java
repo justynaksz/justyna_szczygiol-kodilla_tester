@@ -1,7 +1,6 @@
 public class Application {
     public static void main(String[] args) {
         Person personOne = new Person("Adam", 40.5, 178);
-        personOne.validateName();
         personOne.validateAgeAndHeight();
     }
 }
