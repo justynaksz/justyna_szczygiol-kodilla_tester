@@ -1,40 +1,34 @@
 import java.util.Random;
 
 public class RandomNumbers {
+    int min = 30;
+    int max = 0;
 
-    Random random = new Random();
-    int result = 0;
-    int sum = 0;
-    int temp = random.nextInt(30);
-
-    public int getResult() {
+    public void getRandomNumbers() {
+        Random random = new Random();
+        int sum = 0;
         while (sum < 5000) {
-        sum = sum + temp;
-        result++;
+            int temp = random.nextInt(31);
+            sum = sum + temp;
+            min = Math.min(min, temp);
+            max = Math.max(max, temp);
         }
-        return result;
     }
 
-    public int biggestNumber() {
-        int max = 0;
-        for (int i = 0; i < getResult() - 1; i++) {
-            if (max < temp) {
-                max = temp;
-            }
-            return max;
-        }
+    public int biggestNum() {
         return max;
     }
 
-    public int leastNumber() {
-        int min = 30;
-        for (int i = 0; i < getResult() - 1; i++) {
-            if (min > temp) {
-                min = temp;
-            }
-            return min;
-        }
+    public int leastNum() {
         return min;
     }
-}
 
+    public static void main(String[] args) {
+        RandomNumbers randomNum = new RandomNumbers();
+        randomNum.getRandomNumbers();
+        randomNum.biggestNum();
+        randomNum.leastNum();
+        System.out.println(randomNum.biggestNum());
+        System.out.println(randomNum.leastNum());
+    }
+}
