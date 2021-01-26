@@ -86,10 +86,6 @@ public class BankTestSuite {
         bankCracow.addCashMachine(cashMachineChopina);
         cashMachineChopina.transaction(0);
 
-        cashMachineFalata.cashMachineBalance();
-        cashMachineChopina.cashMachineBalance();
-        cashMachineKarmelicka.cashMachineBalance();
-
         bankCracow.bankBalance();
         assertEquals(0, bankCracow.getBankBalance());
     }
@@ -111,10 +107,6 @@ public class BankTestSuite {
         cashMachineChopina.transaction(0);
         cashMachineChopina.transaction(5000);
 
-        cashMachineFalata.cashMachineBalance();
-        cashMachineChopina.cashMachineBalance();
-        cashMachineKarmelicka.cashMachineBalance();
-
         bankCracow.bankBalance();
         assertEquals(4930, bankCracow.getBankBalance());
     }
@@ -127,10 +119,7 @@ public class BankTestSuite {
         bankCracow.addCashMachine(cashMachineKarmelicka);
         bankCracow.addCashMachine(cashMachineChopina);
 
-        cashMachineFalata.cashMachineBalance();
-        cashMachineChopina.cashMachineBalance();
-        cashMachineKarmelicka.cashMachineBalance();;
-
+        bankCracow.bankBalance();
         bankCracow.bankNumberOfTransactions();
         assertEquals(0, bankCracow.getBankNumberOfTransactions());
     }
@@ -149,10 +138,7 @@ public class BankTestSuite {
         bankCracow.addCashMachine(cashMachineChopina);
         cashMachineChopina.transaction(-5);
 
-        cashMachineFalata.cashMachineBalance();
-        cashMachineChopina.cashMachineBalance();
-        cashMachineKarmelicka.cashMachineBalance();
-
+        bankCracow.bankBalance();
         bankCracow.bankNumberOfTransactions();
         assertEquals(0, bankCracow.getBankNumberOfTransactions());
     }
@@ -170,14 +156,10 @@ public class BankTestSuite {
         bankCracow.addCashMachine(cashMachineChopina);
         cashMachineChopina.transaction(0);
 
-        cashMachineFalata.cashMachineBalance();
-        cashMachineChopina.cashMachineBalance();
-        cashMachineKarmelicka.cashMachineBalance();
-
+        bankCracow.bankBalance();
         bankCracow.bankNumberOfTransactions();
         assertEquals(0, bankCracow.getBankBalance());
     }
-
 
     @Test
     public void shouldCalculateBankNumberOfTransactions() {
@@ -195,10 +177,8 @@ public class BankTestSuite {
         bankCracow.addCashMachine(cashMachineChopina);
         cashMachineChopina.transaction(0);
 
-        cashMachineFalata.cashMachineBalance();
-        cashMachineChopina.cashMachineBalance();
-        cashMachineKarmelicka.cashMachineBalance();
 
+        bankCracow.bankBalance();
         bankCracow.bankNumberOfTransactions();
         assertEquals(4, bankCracow.getBankNumberOfTransactions());
     }
@@ -219,10 +199,7 @@ public class BankTestSuite {
         cashMachineChopina.transaction(0);
         cashMachineChopina.transaction(5000);
 
-        cashMachineFalata.cashMachineBalance();
-        cashMachineChopina.cashMachineBalance();
-        cashMachineKarmelicka.cashMachineBalance();
-
+        bankCracow.bankBalance();
         bankCracow.bankNumberOfTransactions();
         assertEquals(2, bankCracow.getBankNumberOfPositiveTransactions());
     }
@@ -243,10 +220,7 @@ public class BankTestSuite {
         cashMachineChopina.transaction(0);
         cashMachineChopina.transaction(5000);
 
-        cashMachineFalata.cashMachineBalance();
-        cashMachineChopina.cashMachineBalance();
-        cashMachineKarmelicka.cashMachineBalance();
-
+        bankCracow.bankBalance();
         bankCracow.bankNumberOfTransactions();
         bankCracow.bankNumberOfNegativeTransactions();
         assertEquals(2, bankCracow.getNumberOfNegativeTransactions());
@@ -268,10 +242,7 @@ public class BankTestSuite {
         cashMachineChopina.transaction(0);
         cashMachineChopina.transaction(5000);
 
-        cashMachineFalata.cashMachineBalance();
-        cashMachineChopina.cashMachineBalance();
-        cashMachineKarmelicka.cashMachineBalance();
-
+        bankCracow.bankBalance();
         bankCracow.bankSumOfPositiveTransactions();
         assertEquals(5330, bankCracow.getBankSumOfPositiveTransactions());
     }
@@ -292,10 +263,6 @@ public class BankTestSuite {
         cashMachineChopina.transaction(0);
         cashMachineChopina.transaction(5000);
 
-        cashMachineFalata.cashMachineBalance();
-        cashMachineChopina.cashMachineBalance();
-        cashMachineKarmelicka.cashMachineBalance();
-
         bankCracow.bankBalance();
         bankCracow.bankSumOfPositiveTransactions();
         bankCracow.bankSumOfNegativeTransactions();
@@ -310,10 +277,7 @@ public class BankTestSuite {
         bankCracow.addCashMachine(cashMachineKarmelicka);
         bankCracow.addCashMachine(cashMachineChopina);
 
-        cashMachineFalata.cashMachineBalance();
-        cashMachineChopina.cashMachineBalance();
-        cashMachineKarmelicka.cashMachineBalance();;
-
+        bankCracow.bankBalance();
         bankCracow.bankNumberOfTransactions();
         bankCracow.bankSumOfPositiveTransactions();
         assertEquals(0, bankCracow.bankAverageOfPositiveTransactions());
@@ -326,10 +290,6 @@ public class BankTestSuite {
         bankCracow.addCashMachine(cashMachineFalata);
         bankCracow.addCashMachine(cashMachineKarmelicka);
         bankCracow.addCashMachine(cashMachineChopina);
-
-        cashMachineFalata.cashMachineBalance();
-        cashMachineChopina.cashMachineBalance();
-        cashMachineKarmelicka.cashMachineBalance();;
 
         bankCracow.bankBalance();
         bankCracow.bankNumberOfTransactions();
@@ -354,10 +314,7 @@ public class BankTestSuite {
         cashMachineChopina.transaction(0);
         cashMachineChopina.transaction(5000);
 
-        cashMachineFalata.cashMachineBalance();
-        cashMachineChopina.cashMachineBalance();
-        cashMachineKarmelicka.cashMachineBalance();
-
+        bankCracow.bankBalance();
         bankCracow.bankNumberOfTransactions();
         bankCracow.bankSumOfPositiveTransactions();
         assertEquals(1776, bankCracow.bankAverageOfPositiveTransactions());
@@ -378,10 +335,6 @@ public class BankTestSuite {
         bankCracow.addCashMachine(cashMachineChopina);
         cashMachineChopina.transaction(0);
         cashMachineChopina.transaction(5000);
-
-        cashMachineFalata.cashMachineBalance();
-        cashMachineChopina.cashMachineBalance();
-        cashMachineKarmelicka.cashMachineBalance();
 
         bankCracow.bankBalance();
         bankCracow.bankNumberOfTransactions();

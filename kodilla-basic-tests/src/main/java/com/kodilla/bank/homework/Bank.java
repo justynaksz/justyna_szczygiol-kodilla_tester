@@ -39,6 +39,7 @@ public class Bank {
 
     public int bankBalance() {
         for (int i = 0; i < cashMachines.length; i++) {
+            cashMachines[i].cashMachineBalance();
             bankBalance += cashMachines[i].getBalance();
         }
         return bankBalance;
