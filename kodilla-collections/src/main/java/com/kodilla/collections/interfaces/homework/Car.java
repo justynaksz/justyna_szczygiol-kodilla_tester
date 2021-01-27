@@ -4,7 +4,7 @@ public interface Car {
 
     public int getSpeed();
 
-    public void increaseSpeed();
+    public int increaseSpeed();
 
     public void decreaseSpeed();
 }
