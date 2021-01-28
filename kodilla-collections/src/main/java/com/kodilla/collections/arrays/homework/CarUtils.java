@@ -10,7 +10,7 @@ public class CarUtils {
     public static void describeCar (Car car) {
         System.out.println("-----------------------------");
         System.out.println("Car name: " + getCarName(car));
-        System.out.println("Car increased speed: " + car.increaseSpeed());
+        System.out.println("Car speed: " + car.getSpeed());
     }
 
     public static String getCarName(Car car) {
