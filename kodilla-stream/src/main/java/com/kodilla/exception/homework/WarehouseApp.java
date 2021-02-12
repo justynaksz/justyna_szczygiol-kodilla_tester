@@ -9,10 +9,10 @@ public class WarehouseApp {
         warehouse.addOrder(new Order("7"));
 
         try {
-            warehouse.getOrder("18");
+            warehouse.getOrder("16");
             System.out.println("There is such an order.");
         } catch (OrderDoesntExistException e) {
-            System.out.println("The order you are looking for doesn't exist.");
+            System.out.println(e.getMessage());
         }
     }
 }

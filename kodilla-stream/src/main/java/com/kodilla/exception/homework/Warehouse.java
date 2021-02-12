@@ -29,7 +29,7 @@ public class Warehouse {
             return orderOfNumber.get(0);
         }
         else {
-            throw new OrderDoesntExistException();
+            throw new OrderDoesntExistException("The order you are looking for doesn't exist.");
         }
     }
 
