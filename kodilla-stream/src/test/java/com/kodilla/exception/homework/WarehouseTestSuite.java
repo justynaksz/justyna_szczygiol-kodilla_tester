@@ -13,7 +13,6 @@ class WarehouseTestSuite {
         Order order18 = new Order("18");
         Order order25 = new Order("25");
         Order order7 = new Order("7");
-
         warehouse.addOrder(order13);
         warehouse.addOrder(order18);
         warehouse.addOrder(order25);

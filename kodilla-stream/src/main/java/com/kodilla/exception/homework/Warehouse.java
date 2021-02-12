@@ -32,5 +32,4 @@ public class Warehouse {
             throw new OrderDoesntExistException("The order you are looking for doesn't exist.");
         }
     }
-
 }
