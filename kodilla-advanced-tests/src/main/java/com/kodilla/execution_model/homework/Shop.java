@@ -16,10 +16,8 @@ public class Shop {
     }
 
     public void validateOrder(Order order) throws IncorrectOrderData {
-        for (Order orderInOrders : orders) {
-            if (order.equals(orderInOrders)) {
-                throw new IncorrectOrderData();
-            }
+        if (orders.contains(order)) {
+            throw new IncorrectOrderData();
         }
         if (order.getOrderValue() <= 0) {
             throw new IncorrectOrderData();
@@ -40,19 +38,19 @@ public class Shop {
     public Set<Order> getOrdersBetweenValues(double lowestValue, double biggestValue) {
         Set<Order> ordersBetweenValues = orders
                 .stream()
-                .filter(o -> o.getOrderValue() > lowestValue)
-                .filter(n -> n.getOrderValue() < biggestValue)
+                .filter(o -> (o.getOrderValue() > lowestValue) && (o.getOrderValue() < biggestValue))
                 .collect(Collectors.toSet());
         return ordersBetweenValues;
     }
 
-    public double getSumOfOrdersValues() {
-        double sum = 0;
-        for (Order order : orders) {
-            sum = sum + order.getOrderValue();
-        }
+    public Double getSumOfOrdersValues() {
+        Double sum = orders
+                .stream()
+                .mapToDouble(u -> u.getOrderValue())
+                .sum();
         return sum;
     }
+
 
     public int getSize() {
        return this.orders.size();
