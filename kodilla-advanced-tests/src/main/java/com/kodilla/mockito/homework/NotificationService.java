@@ -4,34 +4,31 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 
 public class NotificationService {
 
-  Set<Localization> localizations = new HashSet<>();
-  Map<Client, Set<Localization>> clientNotifications = new HashMap<>();
+  Map<Localization, Client> clientNotifications = new HashMap<>();
 
   public void addLocalSubscriber(Client client, Localization localization) {
-    localizations.add(localization);
-    clientNotifications.put(client, localizations);
+    clientNotifications.put(localization, client);
   }
 
   public void sendGeneralNotification(GeneralNotification generalNotification) {
-    this.clientNotifications.forEach((client, localizations) -> client.receive(generalNotification));
+    this.clientNotifications.values()
+            .stream()
+            .forEach(client -> client.receive(generalNotification));
   }
 
   public void sendLocalNotification(LocalNotification localNotification, Localization localization) {
-    if (localizations.contains(localization)) {
-      this.clientNotifications.forEach((client, localizations) -> client.receiveLocalNotifications(localNotification));
-    }
+    this.clientNotifications.get(localization).receiveLocalNotifications(localNotification);
   }
 
   public void removeLocalSubscriber(Client client, Localization localization) {
-    this.clientNotifications.get(client).remove(localization);
+    this.clientNotifications.remove(localization, client);
   }
 
-  public void removeSubscriber(Client client) {
-    this.clientNotifications.remove(client);
+  public void removeLocalization(Localization localization) {
+    this.clientNotifications.remove(localization);
   }
 }

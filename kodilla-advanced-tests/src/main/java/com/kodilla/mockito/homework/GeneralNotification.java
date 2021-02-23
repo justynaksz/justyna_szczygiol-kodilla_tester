@@ -1,4 +1,4 @@
 package com.kodilla.mockito.homework;
 
-public class GeneralNotification {
+public interface GeneralNotification {
 }
