@@ -10,6 +10,7 @@ public class NotificationServiceTestSuite {
     Localization localization = Mockito.mock(Localization.class);
     Localization localization1 = Mockito.mock(Localization.class);
     Localization localization2 = Mockito.mock(Localization.class);
+    Localization localization4 = Mockito.mock(Localization.class);
     GeneralNotification generalnotification = Mockito.mock(GeneralNotification.class);
     LocalNotification localNotification = Mockito.mock(LocalNotification.class);
     NotificationService notificationService = new NotificationService();
@@ -50,12 +51,10 @@ public class NotificationServiceTestSuite {
     @Test
     public void allSubscribedClientShouldReceiveGeneralNotification() {
         notificationService.addLocalSubscriber(client, localization);
-        notificationService.addLocalSubscriber(client1, localization1);
-        notificationService.addLocalSubscriber(client2, localization2);
+        notificationService.addLocalSubscriber(client, localization1);
+        notificationService.addLocalSubscriber(client, localization2);
         notificationService.sendGeneralNotification(generalnotification);
         Mockito.verify(client, Mockito.times(1)).receive(generalnotification);
-        Mockito.verify(client1, Mockito.times(1)).receive(generalnotification);
-        Mockito.verify(client2, Mockito.times(1)).receive(generalnotification);
     }
 
     @Test
@@ -67,5 +66,27 @@ public class NotificationServiceTestSuite {
         Mockito.verify(client, Mockito.never()).receiveLocalNotifications(localNotification);
         Mockito.verify(client1, Mockito.never()).receiveLocalNotifications(localNotification);
         Mockito.verify(client2, Mockito.times(1)).receiveLocalNotifications(localNotification);
+    }
+
+    @Test
+    public void sendNotificationToNotExistingLocalization() {
+        notificationService.addLocalSubscriber(client, localization);
+        notificationService.addLocalSubscriber(client1, localization1);
+        notificationService.addLocalSubscriber(client2, localization2);
+        notificationService.sendLocalNotification(localNotification, localization4);
+        Mockito.verify(client, Mockito.never()).receiveLocalNotifications(localNotification);
+        Mockito.verify(client1, Mockito.never()).receiveLocalNotifications(localNotification);
+        Mockito.verify(client2, Mockito.never()).receiveLocalNotifications(localNotification);
+    }
+
+    @Test
+    public void shouldRemoveLocalization() {
+        notificationService.addLocalSubscriber(client, localization);
+        notificationService.addLocalSubscriber(client1, localization1);
+        notificationService.removeLocalization(localization);
+        notificationService.sendLocalNotification(localNotification, localization);
+        notificationService.sendLocalNotification(localNotification, localization1);
+        Mockito.verify(client, Mockito.never()).receiveLocalNotifications(localNotification);
+        Mockito.verify(client1, Mockito.times(1)).receiveLocalNotifications(localNotification);
     }
 }
