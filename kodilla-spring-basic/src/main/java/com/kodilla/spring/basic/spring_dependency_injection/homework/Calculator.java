@@ -12,26 +12,26 @@ public class Calculator {
     }
 
     public double add(double a, double b) {
-        display.display(a);
-        display.display(b);
-        return a + b;
+        double result = a + b;
+        display.display(result);
+        return result;
     }
 
     public double subtract(double a, double b) {
-        display.display(a);
-        display.display(b);
-        return a - b;
+        double result = a - b;
+        display.display(result);
+        return result;
     }
 
     public double multiply(double a, double b) {
-        display.display(a);
-        display.display(b);
-        return a * b;
+        double result = a * b;
+        display.display(result);
+        return result;
     }
 
     public double divide(double a, double b){
-        display.display(a);
-        display.display(b);
-        return a / b;
+        double result = a / b;
+        display.display(result);
+        return result;
     }
 }
