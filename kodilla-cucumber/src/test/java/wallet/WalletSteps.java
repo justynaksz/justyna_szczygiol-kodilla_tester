@@ -6,7 +6,6 @@ import org.junit.Assert;
 public class WalletSteps implements En {
 
     private Wallet wallet = new Wallet();
-    private Wallet wallet1 = new Wallet();
     private CashSlot cashSlot = new CashSlot();
     private Cashier cashier = new Cashier(cashSlot);
 
@@ -41,12 +40,20 @@ public class WalletSteps implements En {
             Assert.assertEquals(30, cashSlot.getContents());
         });
 
+        Then("the balance of my wallet should be $170", () -> {
+            Assert.assertEquals("Incorrect wallet balance",170, wallet.getBalance());
+        });
+
         Then("$200 should be dispensed", () -> {
             Assert.assertEquals(200, cashSlot.getContents());
         });
 
         Then("$0 should be dispensed", () -> {
             Assert.assertEquals(0, cashSlot.getContents());
+        });
+
+        Then("the balance of my wallet should be $0", () -> {
+            Assert.assertEquals("Incorrect wallet balance",0, wallet.getBalance());
         });
     }
 }
