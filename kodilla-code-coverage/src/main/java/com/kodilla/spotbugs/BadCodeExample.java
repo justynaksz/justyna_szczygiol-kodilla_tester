@@ -4,7 +4,7 @@ public class BadCodeExample {
     private String type;
 
     public static double getPi() {
-        return 3.14;
+        return Math.PI;
     }
 
     public String getType() {
@@ -18,6 +18,11 @@ public class BadCodeExample {
 
         BadCodeExample badCodeExample = (BadCodeExample) o;
 
-        return type != null ? type.equals(badCodeExample.type) : badCodeExample.type == null;
+        return this.type != null ? this.type.equals(badCodeExample.type) : badCodeExample.type == null;
+    }
+
+    public int hashCode() {
+        assert false : "hashCode not designed";
+        return 42;
     }
 }
