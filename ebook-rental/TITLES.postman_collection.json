@@ -1,0 +1,377 @@
+{
+	"info": {
+		"_postman_id": "39ea5a3d-af6b-43f3-a96e-7b44853517e6",
+		"name": "TITLES",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create title",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"35550\",\r\n    \"author\":\"Stephen King\",\r\n    \"title\":\"It\",\r\n    \"year\":\"1986\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental-be.herokuapp.com/titles/",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental-be",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"titles",
+						""
+					]
+				},
+				"description": "Create title by registered user."
+			},
+			"response": []
+		},
+		{
+			"name": "get titles ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ta-ebookrental-be.herokuapp.com/titles/?userId=35550",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental-be",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"titles",
+						""
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "35550"
+						}
+					]
+				},
+				"description": "Get titles of registered user."
+			},
+			"response": []
+		},
+		{
+			"name": "update title",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"35550\",\r\n    \"id\":\"35553\",\r\n    \"author\":\"Stephen King\",\r\n    \"title\":\"It\",\r\n    \"year\":\"1970\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental-be.herokuapp.com/titles/",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental-be",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"titles",
+						""
+					]
+				},
+				"description": "Update title by registered user."
+			},
+			"response": []
+		},
+		{
+			"name": "delete title",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://ta-ebookrental-be.herokuapp.com/titles/?userId=35550&id=35551",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental-be",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"titles",
+						""
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "35550"
+						},
+						{
+							"key": "id",
+							"value": "35551"
+						}
+					]
+				},
+				"description": "Delete title by registered user."
+			},
+			"response": []
+		},
+		{
+			"name": "create title by unregistered",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"3555555\",\r\n    \"author\":\"Stephen King\",\r\n    \"title\":\"It\",\r\n    \"year\":\"1986\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental-be.herokuapp.com/titles/",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental-be",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"titles",
+						""
+					]
+				},
+				"description": "Try to create title by unregistered user."
+			},
+			"response": []
+		},
+		{
+			"name": "get titles of unregistered",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ta-ebookrental-be.herokuapp.com/titles/?userId=3555555",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental-be",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"titles",
+						""
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "3555555"
+						}
+					]
+				},
+				"description": "Try to get titles of unregistered user."
+			},
+			"response": []
+		},
+		{
+			"name": "update unexisting title",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"35550\",\r\n    \"id\":\"355511\",\r\n    \"author\":\"Stephen King\",\r\n    \"title\":\"It\",\r\n    \"year\":\"1970\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental-be.herokuapp.com/titles/",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental-be",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"titles",
+						""
+					]
+				},
+				"description": "Try to update unexisting title."
+			},
+			"response": []
+		},
+		{
+			"name": "update title of unregistered user",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"355555\",\r\n    \"id\":\"35551\",\r\n    \"author\":\"Stephen King\",\r\n    \"title\":\"It\",\r\n    \"year\":\"1970\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental-be.herokuapp.com/titles/",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental-be",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"titles",
+						""
+					]
+				},
+				"description": "Try to update title of unregistered user."
+			},
+			"response": []
+		},
+		{
+			"name": "update title empty id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"35550\",\r\n    \"id\":\"\",\r\n    \"author\":\"Stephen King\",\r\n    \"title\":\"It\",\r\n    \"year\":\"1970\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental-be.herokuapp.com/titles/",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental-be",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"titles",
+						""
+					]
+				},
+				"description": "Try to update title of empty id."
+			},
+			"response": []
+		},
+		{
+			"name": "delete unexisting title",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://ta-ebookrental-be.herokuapp.com/titles/?userId=35550&id=355511",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental-be",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"titles",
+						""
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "35550"
+						},
+						{
+							"key": "id",
+							"value": "355511"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create title of invalid data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\":\"35550\",\r\n    \"author\":\"\",\r\n    \"title\":\"\",\r\n    \"year\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ta-ebookrental-be.herokuapp.com/titles/",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental-be",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"titles",
+						""
+					]
+				},
+				"description": "Create title of empty author, title, year value."
+			},
+			"response": []
+		},
+		{
+			"name": "delete title of unregistered user",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://ta-ebookrental-be.herokuapp.com/titles/?userId=35551&id=35551",
+					"protocol": "https",
+					"host": [
+						"ta-ebookrental-be",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"titles",
+						""
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "35551"
+						},
+						{
+							"key": "id",
+							"value": "35551"
+						}
+					]
+				},
+				"description": "Try to delete title of unregistered user."
+			},
+			"response": []
+		}
+	]
+}
