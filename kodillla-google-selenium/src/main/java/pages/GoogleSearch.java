@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -11,13 +12,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GoogleSearch extends AbstractPage {
 
-    @FindBy(xpath = "//html/body/div[2]/div[2]/div[3]/span/div/div/div[3]/button[2]")
+    @FindBy(xpath = "//*[@id=\"zV9nZe\"]/div")
     static WebElement acceptCookies;
 
     @FindBy(css = "input[title='Szukaj']")
     static WebElement inputField;
 
-    @FindBy(css = "input[value='Szukaj w Google']")
+    @FindBy(xpath = "//*[@class=\"g\"]")
     static WebElement searchButton;
 
     private GoogleResults googleResults;
@@ -26,18 +27,21 @@ public class GoogleSearch extends AbstractPage {
         super(driver);
     }
 
-    public void searchResults() {
+    public void searchResults() throws InterruptedException {
         PageFactory.initElements(driver, GoogleSearch.class);
+        Thread.sleep(5000);
         acceptCookies.click();
+        Thread.sleep(3000);
         inputField.sendKeys("Kodilla");
+        Thread.sleep(5000);
         googleResults = loadResults(driver);
         googleResults.iSeeResults();
     }
 
 
-    public GoogleResults loadResults(WebDriver driver) {
+    public GoogleResults loadResults(WebDriver driver) throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(searchButton)).click();
+        Thread.sleep(5000);
         GoogleResults googleResults = new GoogleResults(driver);
         return googleResults;
     }
